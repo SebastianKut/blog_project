@@ -45,7 +45,7 @@ class Helper{
                 break;
             default:
                 echo '';
-            }
+        }
     }
 
 }
