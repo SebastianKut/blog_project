@@ -6,8 +6,8 @@ class BlogMember extends BlogReader {
 
     public function __construct($pUsername){
         parent::__construct();
-        $this->$username = $pUsername;
-        $this->$type = BlogMember::MEMBER;
+        $this->username = $pUsername;
+        $this->type = BlogMember::MEMBER;
     }
 
     public function isDuplicateID() {
@@ -29,7 +29,7 @@ class BlogMember extends BlogReader {
         $sql = "INSERT INTO members (username, password) VALUES (:username, :password)";
 
         $values = [
-            [':username', $this->$username],
+            [':username', $this->username],
             [':password', password_hash($pPassword, PASSWORD_DEFAULT)]
         ];
 
@@ -40,10 +40,10 @@ class BlogMember extends BlogReader {
         $sql = "SELECT password FROM members WHERE username = :username";
 
         $values = [
-            [':username', $this->$username]
+            [':username', $this->username]
         ];
 
-        $result = $this->$db->queryDB($sql, Database::SELECTSINGLE, $values);
+        $result = $this->db->queryDB($sql, Database::SELECTSINGLE, $values);
 
         if (isset($result['password']) && password_verify($pPassword, $result['password'])) 
             return true;
@@ -52,9 +52,9 @@ class BlogMember extends BlogReader {
     }
 
     private function getLatestPostID() {
-        $sql = "SELECT max (id) AS max FROM posts";
+        $sql = "SELECT max(id) AS max FROM posts";
 
-        $result = $this->$db->queryDB($sql, Database::SELECTSINGLE);
+        $result = $this->db->queryDB($sql, Database::SELECTSINGLE);
 
         if (isset($result['max'])) 
             return $result['max'];
@@ -69,20 +69,20 @@ class BlogMember extends BlogReader {
 
         $values = [
             [':max', $max],
-            [':username', $this->$username]
+            [':username', $this->username]
         ];
 
-        $this->$db->queryDB($sql, Database::EXECUTE, $values);
+        $this->db->queryDB($sql, Database::EXECUTE, $values);
     }
 
     public function getLastViewedPost() {
         $sql = "SELECT last_viewed FROM members WHERE username = :username";
         
         $values = [
-            [':username', $this->$username]
+            [':username', $this->username]
         ];
 
-        $result = $this->$db->queryDB($sql, Database::SELECTSINGLE, $values);
+        $result = $this->db->queryDB($sql, Database::SELECTSINGLE, $values);
 
         if (isset($result['last_viewed']))
             return $result['last_viewed'];

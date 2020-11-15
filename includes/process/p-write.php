@@ -24,7 +24,7 @@ if( !isset($_SESSION['username']) || !isset($_SESSION['is_admin']) ) {
 
         } else {
 
-            $admin = new Admin($_SESSION['$username']);
+            $admin = new Admin($_SESSION['username']);
 
             $admin->insertIntoPostDB($title, $post, $audience);
 

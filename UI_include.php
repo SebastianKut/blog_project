@@ -6,4 +6,4 @@
     include INC_DIR.'loadclasses.php';
     
     //Include Debugging Code
-    include INC_DIR.'debugging.php';
+   // include INC_DIR.'debugging.php';   //its added in php.ini already

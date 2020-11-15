@@ -1,5 +1,5 @@
 <?php
-
+//the below is set in php.ini already, if not can be added here
 //    error_reporting(E_ALL); 
 //    ini_set('display_errors', '1');
 
