@@ -18,7 +18,11 @@
             <div class="form-group top">
                 <label class="control-label">Username</label>
                 <div>
-                    <input type="text" class="form-control" name="username">
+                    <input type="text" class="form-control" name="username" 
+                        <?php 
+                        $h->keepValues($username, 'textbox'); 
+                        ?>
+                    >
                 </div>        	
             </div>
             <div class="form-group">
@@ -27,7 +31,7 @@
                     <input type="password" class="form-control" name="password">
                 </div>        	
             </div>
-            <div class = "formerror">Error Message Here</div>                
+            <div class = "formerror"><?= $msg; ?></div>                
             <div class="form-group">
                 <div>
                     <center><button type="submit" name = "submit" class="btn btn-primary btn-lg">Log In</button></center>

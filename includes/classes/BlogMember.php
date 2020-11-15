@@ -34,7 +34,7 @@ class BlogMember extends BlogReader {
         ];
 
         $this->db->queryDB($sql, Database::EXECUTE, $values); //no need to return or assign execution
-    };
+    }
 
     public function isValidLogin($pPassword) {
         $sql = "SELECT password FROM members WHERE username = :username";
@@ -49,7 +49,7 @@ class BlogMember extends BlogReader {
             return true;
         else
             return false;
-    };
+    }
 
     private function getLatestPostID() {
         $sql = "SELECT max (id) AS max FROM posts";
@@ -57,12 +57,12 @@ class BlogMember extends BlogReader {
         $result = $this->$db->queryDB($sql, Database::SELECTSINGLE);
 
         if (isset($result['max'])) 
-            return $result['max']
+            return $result['max'];
         else
             return 0;
     }
 
-    function public updateLastViewedPost() {
+    public function updateLastViewedPost() {
         $max = $this->getLatestPostID();
 
         $sql = "UPDATE members SET last_viewed = :max WHERE username = :username";

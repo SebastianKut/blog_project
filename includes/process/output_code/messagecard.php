@@ -1,13 +1,16 @@
 <div class="card read-card">
     <div class="card-body">
 
-        <h4 class="card-title">"post_title"</h4>
+        <h4 class="card-title"><?= $title; ?></h4>
         <hr>
-        
-        //add PHP code here        
-        
-        <span class="post-time">Posted by "user_name" on "post_date" (Eastern Time)</span>
-        <p class="card-text">"post_text"</p>            
+        <?php
+        if( $is_member &&  $last_post < $msgid ) {
+            echo '<span class = "new-post">NEW</span>';
+            $update = true;
+        }
+        ?>             
+        <span class="post-time">Posted by "<?= $username; ?>" on "<?= date('d-M-Y g:i a', $postdate); ?>" (Eastern Time)</span>
+        <p class="card-text">"<?= $post; ?>"</p>            
 
     </div>
 </div> 

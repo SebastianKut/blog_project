@@ -4,7 +4,7 @@ $h = new Helper();
 $update = false;
 $is_member = isset($_SESSION['username']); //if true it means user logged in  - check index.php for reference
 
-if ($is_member){
+if ($is_member) {
     
     $reader = new BlogMember($_SESSION['username']);
     $lastPost = $reader->getLastViewedPost();
@@ -17,7 +17,7 @@ if ($is_member){
 
 $posts = $reader->getPostsFromDB();
 
-if ($posts == false){
+if ($posts == false) {
     
     include "output_code/blankcard.html";
 
