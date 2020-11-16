@@ -13,7 +13,7 @@ Blog users that are not logged in can read all the posts available to public. Af
 
 ## Live demo
 
-You can view website at: http://thirddemo.iwebdev.pl/read.php
+You can view website at: http://thirddemo.iwebdev.pl
 
 ## User accounts credentials for demonstration purposes
 
@@ -26,7 +26,7 @@ PASSWORD: Test1234
 
 #### Member
 
-To log in as a regular user go to: http://thirddemo.iwebdev.pl/admin.php then use following credentials:
+To log in as a regular user go to: http://thirddemo.iwebdev.pl/index.php then use following credentials:
 
 LOGIN: testuser <br>
 PASSWORD: Test1234
